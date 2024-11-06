@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java ChatBot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("userMessage").value;
+            const response = await fetch("/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(message),
+            });
+            const data = await response.text();
+            document.getElementById("chatResponse").innerText = data;
+            document.getElementById("userMessage").value = ""; // Clear input after sending
+        }
+    </script>
+</head>
+<body>
+<div class="chat-container">
+    <h1>Chat with JavaChatBot</h1>
+    <div class="chat-box">
+        <input type="text" id="userMessage" placeholder="Type your message here..." autofocus>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div class="response-container">
+        <p>Response:</p>
+        <p id="chatResponse"></p>
+    </div>
+</div>
+</body>
+</html>

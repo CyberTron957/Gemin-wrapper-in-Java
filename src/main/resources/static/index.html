@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("userMessage").value;
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt: { text: message } }),
+            });
+            const data = await response.text();
+            document.getElementById("chatResponse").innerText = data;
+        }
+    </script>
+</head>
+<body>
+<h1>Chat with Gemini API</h1>
+<input type="text" id="userMessage" placeholder="Type your message here...">
+<button onclick="sendMessage()">Send</button>
+<p>Response: <span id="chatResponse"></span></p>
+</body>
+</html>
