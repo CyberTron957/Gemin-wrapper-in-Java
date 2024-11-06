@@ -3,33 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java ChatBot</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script>
-        async function sendMessage() {
-            const message = document.getElementById("userMessage").value;
-            const response = await fetch("/api/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(message),
-            });
-            const data = await response.text();
-            document.getElementById("chatResponse").innerText = data;
-            document.getElementById("userMessage").value = ""; // Clear input after sending
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
-    </script>
+        .chat-container {
+            width: 400px;
+            height: 600px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #fff;
+        }
+        .chat-message {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #f1f0f0;
+            align-self: flex-start;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        .chat-input button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="chat-container">
-    <h1>Chat with JavaChatBot</h1>
-    <div class="chat-box">
-        <input type="text" id="userMessage" placeholder="Type your message here..." autofocus>
+    <div class="chat-messages" id="chat-messages">
+        <!-- Chat messages will be appended here -->
+    </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
         <button onclick="sendMessage()">Send</button>
     </div>
-    <div class="response-container">
-        <p>Response:</p>
-        <p id="chatResponse"></p>
-    </div>
 </div>
+
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value;
+        if (userInput.trim() === '') return;
+
+        // Append user message to chat
+        const chatMessages = document.getElementById('chat-messages');
+        const userMessageDiv = document.createElement('div');
+        userMessageDiv.className = 'chat-message user-message';
+        userMessageDiv.textContent = userInput;
+        chatMessages.appendChild(userMessageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Clear input field
+        document.getElementById('user-input').value = '';
+
+        // Send message to server
+        fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userInput })
+        })
+            .then(response => response.text())
+            .then(data => {
+                // Append bot response to chat
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.className = 'chat-message bot-message';
+                botMessageDiv.textContent = data;
+                chatMessages.appendChild(botMessageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
 </body>
 </html>
