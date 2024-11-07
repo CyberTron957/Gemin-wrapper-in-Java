@@ -1,0 +1,45 @@
+{
+    "Contact Us": {
+      "My Info": ["Profile", "Your Credentials", "Dayboarder Info", "Acknowledgement View", "Student Bank Info", "Registration Schedule", "Feedback Status", "Hostel Counselling OTP"],
+      "Info Corner": ["FAQ", "Spotlight", "View Circular(s)"]
+    },
+    "Course Enrollment": ["Course Withdraw", "WishList", "EXC Registration"],
+    "Proctor": ["View Proctor Details", "View VTOP Message from Proctor"],
+    "Academics": [
+      "HOD and Dean Info", "Biometric Info", "Class Messages", "Regulation", "My Curriculum", "Minor/ Honour",
+      "Time Table", "Course Option Change", "Course Withdraw", "Class Attendance", "Course Page", "Industrial Internship",
+      "Project", "Capstone Project Upload", "QCM View", "SET Conference Registration", "Co-Extra Curricular",
+      "WishList Registration", "Academic Calendar", "Project Course", "ApaarId Upload"
+    ],
+    "Research": [
+      "My Research Profile", "Course Work Registration", "Registration Status", "Meeting info", "Attendance view",
+      "ScholarLeave Request", "Thesis Status", "Research Letters", "Research Document Upload", "Weekly Work Report",
+      "Research Award Application"
+    ],
+    "Examination": [
+      "Exam Schedule", "Marks", "Grades", "Paper See/Rev", "Grade History", "Project File Upload",
+      "MOOC File upload", "ECA File Upload", "EPT schedule"
+    ],
+    "Comprehensive": ["Comprehensive Exam", "Question Preview", "Exam Information"],
+    "Arrear Details": {
+      "Regular Arrear": ["Regular Arrear Registration", "Registration Details", "Exam Schedule", "Grade View", "Paper See/Rev", "Re-Exam Application"],
+      "Certificate Details": []
+    },
+    "Services": [
+      "Registration", "Facility Registration", "Transport Registration", "Transport Registration Hostler", "Pat Registration",
+      "Online Book Recommendation", "Transcript Request", "Achievements", "Programme Migration", "Graduated information",
+      "Late Hour Request", "Student Outgoing Report", "SAP Project", "Certificate Collection Registration", "Student Withdraw"
+    ],
+    "Library": ["Scanning Request", "My Keys"],
+    "Bonafide": ["Apply Bonafide", "Course Completion"],
+    "Online Payments": ["Wallet Amount Addition", "Payments", "Payment Receipts", "Fees Intimation", "Online Transfer"],
+    "Hostels": ["Online Booking", "My Room Information", "Leave Request", "Caterer Change", "Summer Room Registration", "Attendance View"],
+    "Receipt Book": ["External Billing", "My Collection Report", "Internal Billing"],
+    "FDC FDP": ["FDP Registration", "Participant Certificate"],
+    "Events": {
+      "University Day": ["eCertificates"],
+      "SWF Events": ["Event Requisition", "Event Attendance", "Event Registration", "Club/Chapter Enrollment"]
+    },
+    "My Account": ["Change Password", "Update LoginID"]
+  }
+  
